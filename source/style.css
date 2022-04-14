@@ -1,0 +1,480 @@
+@font-face {
+    font-weight: 400;
+    font-family: 'Roboto';
+    src: url(assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-weight: 500;
+    font-family: 'Roboto';
+    src: url(assets/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-weight: 600;
+    font-family: 'Roboto';
+    src: url(assets/fonts/Roboto/Roboto-Bold.ttf);
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html, body, h1, h2, h3, p, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Roboto';
+}
+
+.wrapper {
+    display: flex;
+
+    height: 100vh;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 17px;
+    color: rgba(3, 3, 3);
+}
+
+.chat-list__last-message {
+    font-weight: 400;
+    font-size: 15px;
+    color: rgba(112, 117, 121, 1);;
+}
+
+.middle-header__subtitle__p {
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(112, 117, 121, 1);;
+}
+
+svg {
+    color: rgba(112, 117, 121, 1);;;
+}
+
+/*Left column main*/
+.left-main-column {
+    display: flex;
+    flex-direction: column;
+
+    width: 25%;
+}
+
+/*Left header*/
+.left-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 3.5rem;
+
+    padding: 0.375rem 1rem .5rem .8125rem;
+
+    background-color: rgb(255, 255, 255);
+}
+
+.droppdown-menu__button, .search__button-svg_clear, .header-tools__button_lupa, .header-tools__button_call, .header-tools__button_more-vert {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+
+    border: none;
+    box-shadow: none;
+}
+
+.droppdown-menu__button {
+    position: relative;
+
+    padding: 5px;
+}
+
+.droppdown-menu__button:hover, .header-tools__button_lupa:hover, .header-tools__button_call:hover, .header-tools__button_more-vert:hover {
+    background-color: rgba(244, 244, 245);
+}
+
+svg {
+    color: rgb(112, 117, 121);
+    fill: currentColor;
+}
+
+.left-header__search {
+    display: flex;
+    width: 100%;
+
+    position: relative;
+}
+
+/*droppdown menu*/
+.droppdown-menu {
+    display: inline-block;
+}
+
+.droppdown-menu__nav {
+    display: none;
+}
+
+.droppdown-menu:hover .droppdown-menu__nav {
+    display: block;
+}
+
+.droppdown-menu__ul {
+    display: flex;
+    flex-direction: column;
+    
+
+    position: absolute;
+    top: 3rem;
+    left: 1rem;
+
+    min-width: 16rem;
+    max-height:23rem;
+
+    font-weight: 500;
+    font-size: 0.875rem;
+
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+}
+
+.droppdown-menu__li {
+    display: flex;
+    align-items: center;
+
+    list-style: none;
+
+    margin: 0.125rem 0.25rem;
+    padding: 0.25rem;
+}
+
+.droppdown-menu__svg {
+    max-width: 1.25rem;
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+    margin-right: 1.25rem;
+}
+
+.droppdown-menu__a {
+    text-decoration: none;
+}
+
+.droppdown-menu__li__p_k {
+    margin-left: 0.9rem;
+    margin-right: 1.55rem;
+
+    color: rgb(112, 117, 121);
+}
+
+.droppdown-menu__li__p_w {
+    margin-left: 0.8rem;
+    margin-right: 1.4rem;
+
+    color: rgb(112, 117, 121);
+}
+
+.droppdown-menu__li_text {
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    padding: 0.5rem 0;
+
+    color: rgb(112, 117, 121);
+}
+
+.search__input {
+    width: 17.5rem;
+    height: 2.5rem;
+    padding-left: 2.5rem;
+
+    border-radius: 1.375rem;
+    border: none;
+    box-shadow: none;
+
+    background-color: rgba(244, 244, 245);
+}
+
+.search__span-svg_search {
+    position: absolute;
+    top: 0.5rem;
+    left: 1.7rem;
+}
+
+.search__button-svg_clear {
+    position: absolute;
+    top: 0.1rem;
+    right: 2.5rem;
+}
+
+.search__input {
+    margin-left: 0.875rem;
+    width: 100%;
+}
+
+/*Chat list*/
+.chat-list {
+    display: flex;
+    flex-direction: column;
+
+    height: calc(100vh - 3.5rem);
+
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    background-color: rgb(255, 255, 255);
+}
+
+.chat-list_user {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+
+    padding: 0.5625rem;
+
+    border-radius: 1rem;
+
+    background-color: rgb(255, 255, 255);
+}
+
+.chat-list_user:hover {
+    background-color: rgba(244, 244, 245);
+    
+}
+
+/*Avatar*/
+.avatar__img {
+    border-radius: 50%;
+}
+
+.chat-list_avatar__img {
+    width: 3.5rem;
+    height: 3.5rem;
+
+    margin-right: 0.625rem;
+}
+
+.middle-header_avatar__img {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    margin-right: 0.625rem;
+}
+
+/*Masseges layout*/
+.messages-layout {
+    display: flex;
+    flex-direction: column;
+
+    width: 75%;
+    height: 100%;
+}
+
+/*Middle header*/
+.middle-header {
+    display: flex;
+    width: 100%;
+    height: 3.5rem;
+
+    box-shadow: 0 1px 1px;
+
+    padding-top: 0.5rem;
+    padding-right: max(1rem);
+    padding-bottom: 0.5rem;
+    padding-left: max(1.5rem);
+
+    background-color: rgb(255, 255, 255);
+}
+
+.header-tools {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
+}
+
+/*Window masseges*/
+.window-messages {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 0px;
+    height: 100%;
+
+    box-shadow: 0 2px 2px rgba(212, 212, 212, 1);
+
+    background: url(assets/images/background.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.messages-list-wrapper {
+    min-height: 0px;
+    height: 100%;
+}
+
+.messages-list_scrollable-area {
+    display: flex;
+    justify-content: end;
+    flex-direction: column-reverse;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.messages__list {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    width: 100%;
+}
+
+.messages_container {
+    display: flex;
+    flex-direction: column;
+
+    width: 39rem;
+    max-width: 100%;
+}
+
+.message-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem 0 2rem 0;
+}
+
+.message-body {
+    max-width: 75%;
+}
+
+.message-body_left {
+    display: flex;
+	align-items: center;
+}
+
+.message-body_rigth {
+    display: flex;
+	align-items: center;
+    align-self: flex-end;
+}
+
+.message-date__span {
+    border-radius: 0.65rem;
+
+    padding: 0.3rem;
+
+    background-color: rgba(171, 167, 167, 1);
+}
+
+.message-body__img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 25rem;
+
+    border-radius: 0.75rem;
+}
+
+.message-body__p {
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    background-color: rgb(255, 255, 255);;
+}
+
+.middle-column__footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    padding: 1.5rem;
+}
+
+.middle-column__footer-tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 35rem;
+    max-width: 80%;
+    max-height: calc(50vh - 3.5rem);
+    min-height: 3.5rem;
+
+    border-radius: 0.75rem;
+
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    background-color: rgba(255, 255, 255);
+}
+
+.footer_message__text {
+    width: 29rem;
+
+    font-size: 1rem;
+
+    border: 0;
+
+    padding-left: 1rem;
+
+    outline:none;
+}
+
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text);
+    color: rgba(112, 117, 121, 1);;
+}
+
+.footer__button_icon-smile, .footer__button_icon-attach {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+
+    background-color: rgba(255, 255, 255);
+}
+
+.footer__button_icon-smile svg:hover, .footer__button_icon-attach svg:hover {
+    color: rgb(74, 157, 238);
+}
+
+.footer__button_voice {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 0;
+
+    margin-left: 1rem;
+
+    background-color: rgba(255, 255, 255);
+}
+
+.footer__button_voice:hover {
+    background-color: rgb(74, 157, 238);
+}
+
+.footer__button_voice:hover svg {
+    color: rgba(242, 242, 243, 0.976);
+}
