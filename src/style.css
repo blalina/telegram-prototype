@@ -77,7 +77,7 @@ svg {
     background-color: rgb(255, 255, 255);
 }
 
-.droppdown-menu__button, .search__button-svg_clear, .header-tools__button_lupa, .header-tools__button_call, .header-tools__button_more-vert {
+.dropdown-menu__button, .search__button-svg_clear, .header-tools__button_lupa, .header-tools__button_call, .header-tools__button_more-vert {
     width: 2.5rem;
     height: 2.5rem;
 
@@ -88,13 +88,15 @@ svg {
     box-shadow: none;
 }
 
-.droppdown-menu__button {
+.dropdown-menu__button {
     position: relative;
 
     padding: 5px;
+
+    cursor: pointer;
 }
 
-.droppdown-menu__button:hover, .header-tools__button_lupa:hover, .header-tools__button_call:hover, .header-tools__button_more-vert:hover {
+.dropdown-menu__button:hover, .header-tools__button_lupa:hover, .header-tools__button_call:hover, .header-tools__button_more-vert:hover {
     background-color: rgba(244, 244, 245);
 }
 
@@ -110,20 +112,16 @@ svg {
     position: relative;
 }
 
-/*droppdown menu*/
-.droppdown-menu {
-    display: inline-block;
-}
-
-.droppdown-menu__nav {
+/*dropdown menu*/
+.dropdown-menu__nav {
     display: none;
 }
 
-.droppdown-menu:hover .droppdown-menu__nav {
-    display: block;
+.dropdown-menu__nav_active {
+    display: inline-block;
 }
 
-.droppdown-menu__ul {
+.dropdown-menu__ul {
     display: flex;
     flex-direction: column;
     
@@ -132,7 +130,7 @@ svg {
     top: 3rem;
     left: 1rem;
 
-    min-width: 16rem;
+    min-width: 17rem;
     max-height:23rem;
 
     font-weight: 500;
@@ -140,9 +138,11 @@ svg {
 
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 0.5rem;
+
+    cursor: pointer;
 }
 
-.droppdown-menu__li {
+.dropdown-menu__li {
     display: flex;
     align-items: center;
 
@@ -152,32 +152,37 @@ svg {
     padding: 0.25rem;
 }
 
-.droppdown-menu__svg {
+.dropdown-menu__li:hover {
+    border-radius: 0.5rem;
+    background-color: rgba(244, 244, 245);
+}
+
+.dropdown-menu__svg {
     max-width: 1.25rem;
     font-size: 1.25rem;
     margin-left: 0.5rem;
     margin-right: 1.25rem;
 }
 
-.droppdown-menu__a {
+.dropdown-menu__a {
     text-decoration: none;
 }
 
-.droppdown-menu__li__p_k {
+.dropdown-menu__li__p_k {
     margin-left: 0.9rem;
     margin-right: 1.55rem;
 
     color: rgb(112, 117, 121);
 }
 
-.droppdown-menu__li__p_w {
+.dropdown-menu__li__p_w {
     margin-left: 0.8rem;
     margin-right: 1.4rem;
 
     color: rgb(112, 117, 121);
 }
 
-.droppdown-menu__li_text {
+.dropdown-menu__li_text {
     text-align: center;
 
     font-size: 13px;
