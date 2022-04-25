@@ -1,7 +1,7 @@
 /* eslint-disable spaced-comment */
 /* dropdown menu */
 const dropdownMenuButton = document.querySelector('.js-dropdown-menu__button');
-const dropdownMenuNav = document.querySelector('.dropdown-menu__nav');
+const dropdownMenuNav = document.querySelector('.js-dropdown-menu-nav');
 
 dropdownMenuButton.addEventListener('click', (event) => {
   event.stopPropagation();
@@ -17,12 +17,12 @@ document.addEventListener('click', () => {
 });
 
 /* relevant contact search */
-const searchInput = document.querySelector('.search__input');
+const searchInput = document.querySelector('.js-search-input');
 
-const infoForUser = Array.from(document.querySelectorAll('.chat-list_user'));
-const usersTitle = infoForUser.map((user) => user.querySelector('.chat-list__title h3'));
+const infoForUser = Array.from(document.querySelectorAll('.js-chat-list-user'));
+const usersTitle = infoForUser.map((user) => user.querySelector('.js-chat-list-title h3'));
 
-searchInput.oninput = () => {
+searchInput.addEventListener('input', () => {
   const valueEnteredByTheUser = searchInput.value.trim().toLowerCase();
 
   if (valueEnteredByTheUser !== '') {
@@ -38,10 +38,10 @@ searchInput.oninput = () => {
       infoForUser[index].classList.remove('hidden');
     });
   }
-};
+});
 
 /* deleted value in the search */
-const clearSearchButton = document.querySelector('.search__button-svg_clear');
+const clearSearchButton = document.querySelector('.js-search-button-clear');
 
 clearSearchButton.addEventListener('click', () => {
   searchInput.value = '';
