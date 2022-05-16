@@ -48,3 +48,41 @@ clearSearchButton.addEventListener('click', () => {
   const event = new Event('input');
   searchInput.dispatchEvent(event);
 });
+
+searchInput.addEventListener('input', () => {
+  if (searchInput.value !== '') {
+    clearSearchButton.classList.add('show-search-button-clear');
+  } else {
+    clearSearchButton.classList.remove('show-search-button-clear');
+  }
+});
+
+/* Stretch the block (chat) with the mouse */
+const leftMainColumn = document.querySelector('.js-left-main-column');
+const resizeHandle = document.querySelector('.js-resize-handle');
+
+let currentMousePosition = 0;
+let elementSize = 0;
+
+const mouseMoveHandler = (event) => {
+  const mouseDistance = event.clientX - currentMousePosition;
+  leftMainColumn.style.width = `${elementSize + mouseDistance}px`;
+};
+
+const mouseUpHandler = () => {
+  document.removeEventListener('mousemove', mouseMoveHandler);
+  document.removeEventListener('mouseup', mouseUpHandler);
+};
+
+const mouseDownHandler = (event) => {
+  event.preventDefault(); //Prevent text/item from being highlighted when dragging the cursor
+  currentMousePosition = event.clientX;
+
+  const calculateElementSize = window.getComputedStyle(leftMainColumn);
+  elementSize = parseInt(calculateElementSize.width, 10);
+
+  document.addEventListener('mousemove', mouseMoveHandler);
+  document.addEventListener('mouseup', mouseUpHandler);
+};
+
+resizeHandle.addEventListener('mousedown', mouseDownHandler);

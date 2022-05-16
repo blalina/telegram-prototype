@@ -61,8 +61,25 @@ svg {
 .left-main-column {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     width: 25%;
+    min-width: 15%;
+
+    resize: horizontal;
+}
+
+/*Mouse handler*/
+.resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 0.25rem;
+    height: 100%;
+
+    cursor: ew-resize;
 }
 
 /*Left header*/
@@ -110,6 +127,14 @@ svg {
     width: 100%;
 
     position: relative;
+}
+
+.search__button-svg_clear {
+    display: none;
+}
+
+.show-search-button-clear {
+    display: block;
 }
 
 /*dropdown menu*/
@@ -281,7 +306,9 @@ svg {
     display: flex;
     flex-direction: column;
 
-    width: 75%;
+    position: relative;
+
+    width: 100%;
     height: 100%;
 }
 
