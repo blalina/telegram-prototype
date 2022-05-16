@@ -59,7 +59,7 @@ searchInput.addEventListener('input', () => {
 
 /* Stretch the block (chat) with the mouse */
 const leftMainColumn = document.querySelector('.js-left-main-column');
-const resizeHandle = document.querySelectorAll('.js-resize-handle');
+const resizeHandle = document.querySelector('.js-resize-handle');
 
 let currentMousePosition = 0;
 let elementSize = 0;
@@ -75,7 +75,7 @@ const mouseUpHandler = () => {
 };
 
 const mouseDownHandler = (event) => {
-  event.preventDefault();
+  event.preventDefault(); //Prevent text/item from being highlighted when dragging the cursor
   currentMousePosition = event.clientX;
 
   const calculateElementSize = window.getComputedStyle(leftMainColumn);
@@ -85,6 +85,4 @@ const mouseDownHandler = (event) => {
   document.addEventListener('mouseup', mouseUpHandler);
 };
 
-[].forEach.call(resizeHandle, (resizer) => {
-  resizer.addEventListener('mousedown', mouseDownHandler);
-});
+resizeHandle.addEventListener('mousedown', mouseDownHandler);
