@@ -75,7 +75,8 @@ const mouseUpHandler = () => {
 };
 
 const mouseDownHandler = (event) => {
-  event.preventDefault(); //Prevent text/item from being highlighted when dragging the cursor
+  // prevent text/item from being highlighted when dragging the cursor
+  event.preventDefault();
   currentMousePosition = event.clientX;
 
   const calculateElementSize = window.getComputedStyle(leftMainColumn);
@@ -86,3 +87,93 @@ const mouseDownHandler = (event) => {
 };
 
 resizeHandle.addEventListener('mousedown', mouseDownHandler);
+
+/* changed Send button icon */
+const messageInputForm = document.querySelector('.js-footer_message-input-form');
+const defaultButtonIcon = document.querySelector('.js-icon-button_voice__svg');
+const sendButtonIcon = document.querySelector('.js-icon-button_voice__svg-send');
+
+messageInputForm.addEventListener('input', (event) => {
+  const inputValue = event.target.textContent;
+
+  if (inputValue !== '') {
+    defaultButtonIcon.classList.add('footer__button_voice__svg_hidden');
+    sendButtonIcon.classList.add('footer__button_voice__svg-send_active');
+  } else {
+    defaultButtonIcon.classList.remove('footer__button_voice__svg_hidden');
+    sendButtonIcon.classList.remove('footer__button_voice__svg-send_active');
+  }
+});
+
+/* message send form */
+const messageSendButton = document.querySelector('.js-message-send-button');
+const messagesContainer = document.querySelector('.js-messages-container');
+
+const sendMessage = () => {
+  const inputValue = messageInputForm.innerText.trim();
+  if (!inputValue) return; // if nothing is entered, abort
+
+  messageInputForm.innerText = ''; // leaves the input field blank after sending
+
+  const newDiv = document.createElement('div');
+  newDiv.className = 'message-body message-body_rigth';
+  const newParagraph = document.createElement('p');
+  newParagraph.className = 'message-body__p';
+
+  newParagraph.innerText = inputValue;
+  newDiv.appendChild(newParagraph);
+
+  messagesContainer.appendChild(newDiv);
+};
+
+/* date in the message */
+const month = {
+  0: 'January',
+  1: 'February',
+  2: 'March',
+  3: 'April',
+  4: 'May',
+  5: 'June',
+  6: 'July',
+  7: 'August',
+  8: 'September',
+  9: 'October',
+  10: 'November',
+  11: 'December',
+};
+
+const currentTime = new Date();
+const currentMonth = currentTime.getMonth();
+const currentDate = currentTime.getDate();
+const monthToday = `${month[currentMonth]} ${currentDate}`;
+
+let called = false;
+
+const sendDate = () => {
+  // func call check
+  if (called) return;
+  called = true;
+
+  const newDiv = document.createElement('div');
+  newDiv.className = 'message-date';
+  const newSpan = document.createElement('span');
+  newSpan.className = 'message-date__span';
+
+  newSpan.innerText = monthToday;
+  newDiv.appendChild(newSpan);
+
+  messagesContainer.appendChild(newDiv);
+};
+
+messageSendButton.addEventListener('click', () => {
+  sendDate();
+  sendMessage();
+});
+
+messageInputForm.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13 && !event.shiftKey) {
+    event.preventDefault();
+    sendDate();
+    sendMessage();
+  }
+});
