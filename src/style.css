@@ -391,11 +391,13 @@ svg {
     justify-content: center;
     align-items: center;
 
-    padding: 2rem 0 2rem 0;
+    padding: 1rem 0 1rem 0;
 }
 
 .message-body {
     max-width: 75%;
+
+    padding: 1rem 0 1rem 0;
 }
 
 .message-body_left {
@@ -497,6 +499,7 @@ svg {
 }
 
 .footer__button_voice {
+    position: relative;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
@@ -514,3 +517,21 @@ svg {
 .footer__button_voice:hover svg {
     color: rgba(242, 242, 243, 0.976);
 }
+
+.footer__button_voice__svg_hidden {
+    display: none;
+}
+
+.footer__button_voice__svg-send {
+    display: none;
+}
+
+.footer__button_voice__svg-send_active, .footer__button_voice__svg-send_active svg {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+
+    color: rgb(74, 157, 238);
+}
+
