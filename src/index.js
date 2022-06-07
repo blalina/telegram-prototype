@@ -90,17 +90,17 @@ resizeHandle.addEventListener('mousedown', mouseDownHandler);
 
 /* changed Send button icon */
 const messageInputForm = document.querySelector('.js-footer_message-input-form');
-const defaultButtonIcon = document.querySelector('.js-icon-button_voice__svg');
+const recordButtonIcon = document.querySelector('.js-icon-button_voice__svg');
 const sendButtonIcon = document.querySelector('.js-icon-button_voice__svg-send');
 
 messageInputForm.addEventListener('input', (event) => {
   const inputValue = event.target.textContent;
 
   if (inputValue !== '') {
-    defaultButtonIcon.classList.add('footer__button_voice__svg_hidden');
+    recordButtonIcon.classList.add('footer__button_voice__svg_hidden');
     sendButtonIcon.classList.add('footer__button_voice__svg-send_active');
   } else {
-    defaultButtonIcon.classList.remove('footer__button_voice__svg_hidden');
+    recordButtonIcon.classList.remove('footer__button_voice__svg_hidden');
     sendButtonIcon.classList.remove('footer__button_voice__svg-send_active');
   }
 });
@@ -142,17 +142,17 @@ const month = {
   11: 'December',
 };
 
-const currentTime = new Date();
-const currentMonth = currentTime.getMonth();
-const currentDate = currentTime.getDate();
-const monthToday = `${month[currentMonth]} ${currentDate}`;
-
 let called = false;
 
 const sendDate = () => {
   // func call check
   if (called) return;
   called = true;
+
+  const currentTime = new Date();
+  const currentMonth = currentTime.getMonth();
+  const currentDate = currentTime.getDate();
+  const monthToday = `${month[currentMonth]} ${currentDate}`;
 
   const newDiv = document.createElement('div');
   newDiv.className = 'message-date';
@@ -168,6 +168,9 @@ const sendDate = () => {
 messageSendButton.addEventListener('click', () => {
   sendDate();
   sendMessage();
+
+  // input event trigger to display the voice button
+  messageInputForm.dispatchEvent(new Event('input'));
 });
 
 messageInputForm.addEventListener('keypress', (event) => {
@@ -175,5 +178,7 @@ messageInputForm.addEventListener('keypress', (event) => {
     event.preventDefault();
     sendDate();
     sendMessage();
+
+    messageInputForm.dispatchEvent(new Event('input'));
   }
 });
