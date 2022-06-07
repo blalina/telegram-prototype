@@ -105,6 +105,11 @@ messageInputForm.addEventListener('input', (event) => {
   }
 });
 
+// input event trigger to display the voice button
+const formEventTrigger = () => {
+  messageInputForm.dispatchEvent(new Event('input'));
+};
+
 /* message send form */
 const messageSendButton = document.querySelector('.js-message-send-button');
 const messagesContainer = document.querySelector('.js-messages-container');
@@ -168,9 +173,7 @@ const sendDate = () => {
 messageSendButton.addEventListener('click', () => {
   sendDate();
   sendMessage();
-
-  // input event trigger to display the voice button
-  messageInputForm.dispatchEvent(new Event('input'));
+  formEventTrigger();
 });
 
 messageInputForm.addEventListener('keypress', (event) => {
@@ -178,7 +181,6 @@ messageInputForm.addEventListener('keypress', (event) => {
     event.preventDefault();
     sendDate();
     sendMessage();
-
-    messageInputForm.dispatchEvent(new Event('input'));
+    formEventTrigger();
   }
 });
