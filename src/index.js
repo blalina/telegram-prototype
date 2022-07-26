@@ -184,3 +184,85 @@ messageInputForm.addEventListener('keypress', (event) => {
     formEventTrigger();
   }
 });
+
+/* user interaction */
+const userFromTheChatList = document.querySelectorAll('.js-chat-list-user');
+const chatMessages = document.querySelector('.js-messages-container');
+const middleHeader = document.querySelector('.js-middle-header');
+const middleColumnFooter = document.querySelector('.js-middle-column-footer');
+
+userFromTheChatList.forEach(function(userFromTheChatList) {
+  userFromTheChatList.addEventListener('click', () => {
+    chatMessages.classList.add('messages-container_active');
+    middleHeader.classList.add('middle-header_active');
+    middleColumnFooter.classList.add('middle-column__footer_active');
+  });
+});
+
+/* button appearance changed, display modal window */
+const attachmentModalContainer = document.querySelector('.js-attachment-modal-container');
+const inputFileAttachment = document.querySelector('.js-attachment-modal-input-file');
+const photoAttachemntButton = document.querySelector('.js-footer-button_icon-attach'); 
+
+photoAttachemntButton.addEventListener('click', () => {
+  attachmentModalContainer.classList.add('attachment-modal_container_active');
+});
+
+const buttonAppearanceChanged = () => {
+  const open = document.createElement('button');
+
+  open.classList.add('attachment-modal__button');
+  open.textContent = 'Open';
+
+  inputFileAttachment.insertAdjacentElement('afterend', open);
+
+  const triggerInput = () => inputFileAttachment.click();
+  open.addEventListener('click', triggerInput);
+};
+
+buttonAppearanceChanged();
+
+/* display of attachment file in message window */
+const previewAttachmentFile = (newImg) => {
+  const fileInAttachment = inputFileAttachment.files[0];
+  const reader  = new FileReader();
+
+  reader.onloadend = function () {
+    newImg.src = reader.result; // в result закодировано изображение которые мы вставили
+  }
+
+  if (fileInAttachment) {
+    reader.readAsDataURL(fileInAttachment);
+  } else {
+    newImg.src = "";
+  }
+};
+
+const clearAttachments = () => {
+  inputFileAttachment.value = '';
+};
+
+inputFileAttachment.addEventListener('change', () => {
+  const newImg = createImage();
+  previewAttachmentFile(newImg);
+  sendDate();
+  sendImage(newImg);
+  clearAttachments();
+  attachmentModalContainer.classList.remove('attachment-modal_container_active');
+});
+
+const createImage = () => {
+  const newImg = document.createElement('img');
+  newImg.className = 'message-body__img';
+
+  return newImg;
+};
+
+const sendImage = (newImg) => {
+  const newDiv = document.createElement('div');
+  newDiv.className = 'message-body message-body_rigth';
+  
+  newDiv.appendChild(newImg);
+
+  messagesContainer.appendChild(newDiv);
+};
