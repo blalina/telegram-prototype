@@ -1,6 +1,7 @@
-# telegram-prototype tests and linter status:
+# Chat App appearance taken from telegram
 
-[![Build Status](https://github.com/blalina/telegram-prototype/workflows/status/badge.svg)](https://github.com/blalina/telegram-prototype/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+This is a simple chat application created using JavaScript. Users can send messages and attach files to their messages. Attached files are displayed in the chat window along with the messages. 
+
+## GitHub Pages
 
 GitHub pages - https://blalina.github.io/telegram-prototype/src/
