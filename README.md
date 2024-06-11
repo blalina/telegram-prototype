@@ -1,6 +1,6 @@
 # Chat App on JavaScript
 
-Landing page built with pure JavaScript. Chat App appearance taken from telegram
+Static site using JavaScript for interactivity. Chat App appearance taken from telegram
 
 What the app can do:
 
