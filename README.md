@@ -1,6 +1,6 @@
 # Chat App on JavaScript
 
-SPA built with pure JavaScript. Chat App appearance taken from telegram
+Landing page built with pure JavaScript. Chat App appearance taken from telegram
 
 What the app can do:
 
