@@ -1,6 +1,13 @@
-# Chat App appearance taken from telegram
+# Chat App on JavaScript
 
-This is a simple chat application created using JavaScript. Users can send messages and attach files to their messages. Attached files are displayed in the chat window along with the messages. 
+SPA built with pure JavaScript. Chat App appearance taken from telegram
+
+What the app can do:
+
+- Searching and selecting users via search functionality.
+- Sending messages and attaching files, displayed in the chat window.
+- Retrieving coordinates and dynamically adjusting block width when resizing with the mouse.
+- Handling events and input text display in another block.
 
 ## GitHub Pages
 
